@@ -9,13 +9,11 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Role {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Builder
+public class Role extends BaseEntity {
 
-    @Column(unique = true, nullable = false, length = 50)
     @Enumerated(EnumType.STRING)
+    @Column(unique = true, nullable = false, length = 50)
     private RoleName name;
 
     public enum RoleName {
